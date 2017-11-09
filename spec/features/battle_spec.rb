@@ -16,12 +16,11 @@ Capybara.app = Battle
       click_button "Submit"
       expect(page).to have_content "whatever name"
     end
-
-    scenario "submitting names" do
-      visit('/')
-      fill_in :player1, with: 'Dave'
-      fill_in :player2, with: 'Mittens'
-      click_button 'Submit'
-      expect(page).to have_content 'Dave vs. Mittens'
-    end
   end
+
+    feature "seeing opponent's hit points" do
+      scenario "visiting play page and seeing 60HP" do
+        visit("/play")
+        expect(page).to have_content "60HP"
+      end
+    end
