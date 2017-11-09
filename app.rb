@@ -22,11 +22,10 @@ class Battle < Sinatra::Base
   end
 
   get "/attack" do
-    $game.attack_p2
-    @pl2_hp = $game.player2.hp
+    @hp = $game.attack
     erb :attack
   end
-
+  
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

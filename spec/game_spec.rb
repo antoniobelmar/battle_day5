@@ -21,12 +21,35 @@ describe Game do
   end
 
   describe "#attack" do
-    it "calls reduce_hp on player2" do
-      expect(player2).to receive(:reduce_hp)
-      game.attack_p2
+    it 'changes turn from P1 to P2' do
+      subject.attack
+      expect(subject.turn).to eq 2
     end
-    it "returns the updated hp points" do
-      expect(game.attack_p2).to eq 'reduced!'
+
+    it 'changes turn from P2 to P1' do
+      subject.attack
+      subject.attack
+      expect(subject.turn).to eq 1
+    end
+
+    it 'it attacks P2 when turn is 1' do
+      expect(subject).to receive(:attack_p2)
+      subject.attack
+    end
+
+    it 'it attacks P1 when turn is 2' do
+      subject.attack
+      expect(subject).to receive(:attack_p1)
+      subject.attack
+    end
+
+    it 'returns reduced!' do
+      expect(subject.attack).to eq 'reduced!'
+    end
+
+    it 'returns reduced!' do
+      subject.attack
+      expect(subject.attack).to eq 'reduced!'
     end
   end
 end
