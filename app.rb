@@ -8,8 +8,8 @@ class Battle < Sinatra::Base
   end
 
   get "/play" do
-    @pl1 = $pl1.name
-    @pl2 = $pl2.name
+    @pl1_name = $pl1.name
+    @pl2_name = $pl2.name
     erb(:play)
   end
 
@@ -20,6 +20,9 @@ class Battle < Sinatra::Base
   end
 
   get "/attack" do
+    $pl1.attack($pl2)
+    @pl1_hp = $pl1.hp
+    @pl2_hp = $pl2.hp
     erb :attack
   end
 
