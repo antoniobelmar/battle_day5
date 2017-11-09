@@ -18,7 +18,6 @@ describe Game do
     it "expects to first argument to be stored as player 2" do
       expect(game.player2).to eq(player2)
     end
-
   end
 
   describe "#attack" do
