@@ -21,7 +21,7 @@
       scenario "attacking player 2 and receive confirmation" do
         sign_in_and_play
         click_button "Attack"
-        expect(page).to have_content "Your attack was successful."
+        expect(page).to have_content "attack was successful."
       end
 
       scenario "when attacking first_time, reduce player 2 HP by 10" do
