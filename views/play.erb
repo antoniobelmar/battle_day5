@@ -1,5 +1,19 @@
-<%= "#{@pl1_name} vs. #{@pl2_name}" %>
-P2: 60HP
+<h1> <%= "#{@pl1_name}: (#{@pl1_hp}/#{@hp}HP) vs. #{@pl2_name}: (#{@pl2_hp}/#{@hp}HP)" %> </h1>
+
+<% if @pl2_hp == @hp %>
+  It's <%= @pl1_name %>'s turn.
+<% elsif @turn.even?%>
+<p>
+  <%= @pl1_name %>'s attack was successful.
+  It's <%= @pl2_name %>'s turn.
+</p>
+<% else %>
+<p>
+  <%= @pl2_name %>'s attack was successful.
+  It's <%= @pl1_name %>'s turn.
+</p>
+<% end %>
+
 <form action= "/attack">
-  <button type="submit"> Attack P2 </button>
+  <button type="submit"> Attack </button>
 </form>
